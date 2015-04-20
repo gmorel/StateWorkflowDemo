@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://rawgit.com/spec-gen/state-workflow-spec-gen-bundle/master/UI/Resource/style.css" rel="stylesheet" />
+        <meta charset=utf-8 />
+        <title>Booking Workflow Specification</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+        <script src="https://rawgit.com/spec-gen/state-workflow-spec-gen-bundle/master/UI/Resource/code.js"></script>
+        <script type="application/javascript">
+            var dataWorkflow = {"nodes":[{"data":{"id":"incomplete","name":"Incomplete","weight":50,"faveColor":"#E0F1A2","faveShape":"triangle"}},{"data":{"id":"waiting_for_payment","name":"Waiting for payment","weight":50,"faveColor":"#99E6E0","faveShape":"rectangle"}},{"data":{"id":"paid","name":"Paid","weight":50,"faveColor":"#29EF29","faveShape":"ellipse"}},{"data":{"id":"cancelled","name":"Cancelled","weight":50,"faveColor":"#F90FFB","faveShape":"rectangle"}},{"data":{"id":"to_delete","name":"To delete","weight":50,"faveColor":"#617FFB","faveShape":"ellipse"}}],"edges":[{"data":{"source":"incomplete","target":"waiting_for_payment","faveColor":"#E0F1A2","strength":20}},{"data":{"source":"incomplete","target":"cancelled","faveColor":"#E0F1A2","strength":20}},{"data":{"source":"waiting_for_payment","target":"cancelled","faveColor":"#99E6E0","strength":20}},{"data":{"source":"waiting_for_payment","target":"paid","faveColor":"#99E6E0","strength":20}},{"data":{"source":"cancelled","target":"to_delete","faveColor":"#F90FFB","strength":20}}]};
+        </script>
+    </head>
+
+    <body>
+        <div id="cy"></div>
+    </body>
+</html>

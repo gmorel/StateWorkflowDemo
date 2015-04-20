@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://rawgit.com/spec-gen/state-workflow-spec-gen-bundle/master/UI/Resource/style.css" rel="stylesheet" />
+        <meta charset=utf-8 />
+        <title>Quote Workflow Specification</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+        <script src="https://rawgit.com/spec-gen/state-workflow-spec-gen-bundle/master/UI/Resource/code.js"></script>
+        <script type="application/javascript">
+            var dataWorkflow = {
+                "nodes":[
+                    {
+                        "data":{
+                            "id":"draft","name":"Draft","weight":50,"faveColor":"#E0F1A2","faveShape":"triangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"incomplete_step1","name":"Incomplete step 1","weight":50,"faveColor":"#00FFE1","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"incomplete_step2","name":"Incomplete step 2","weight":50,"faveColor":"#00F0D4","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"incomplete_step3","name":"Incomplete step 3","weight":50,"faveColor":"#00DBC2","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"incomplete_step_final","name":"Incomplete step final","weight":50,"faveColor":"#00C9B2","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"waiting_for_payment","name":"Waiting for payment","weight":50,"faveColor":"#FFB300","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"waiting_for_3ds","name":"Waiting for 3DS","weight":50,"faveColor":"#FFF700","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"paid","name":"Paid","weight":50,"faveColor":"#9DD490","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"validated_by_service_a","name":"Validated by service A","weight":50,"faveColor":"#77CF61","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"validated_by_service_b","name":"Validated by service B","weight":50,"faveColor":"#4BCC2B","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"validated","name":"Validated","weight":50,"faveColor":"#29EF29","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"cancelled","name":"Cancelled","weight":50,"faveColor":"#FF0000","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"refunded","name":"Refunded","weight":50,"faveColor":"#F90FFB","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"to_be_called_by_call_center_a","name":"To be called by Call Center A","weight":50,"faveColor":"#AD9D36","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"to_be_called_by_call_center_b","name":"To be called by Call Center B","weight":50,"faveColor":"#C9AF00","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"to_renew","name":"To renew","weight":50,"faveColor":"#FF009D","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"to_archive","name":"To archive","weight":50,"faveColor":"#BFBFBF","faveShape":"rectangle"
+                        }
+                    },
+                    {
+                        "data":{
+                            "id":"to_delete","name":"To delete","weight":50,"faveColor":"#617FFB","faveShape":"ellipse"
+                        }
+                    }
+                ],
+                "edges": [
+                    {
+                        "data":{
+                            "source":"draft","target":"incomplete_step1","faveColor":"#E0F1A2","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"draft","target":"to_be_called_by_call_center_a","faveColor":"#E0F1A2","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step1","target":"incomplete_step2","faveColor":"#00FFE1","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step1","target":"to_be_called_by_call_center_a","faveColor":"#00FFE1","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step2","target":"incomplete_step3","faveColor":"#00F0D4","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step2","target":"to_be_called_by_call_center_a","faveColor":"#00F0D4","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step3","target":"incomplete_step_final","faveColor":"#00DBC2","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step3","target":"to_be_called_by_call_center_a","faveColor":"#00DBC2","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step_final","target":"waiting_for_payment","faveColor":"#00C9B2","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"incomplete_step_final","target":"to_be_called_by_call_center_a","faveColor":"#00C9B2","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"waiting_for_payment","target":"waiting_for_3ds","faveColor":"#FFB300","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"waiting_for_payment","target":"to_be_called_by_call_center_b","faveColor":"#FFB300","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"waiting_for_3ds","target":"paid","faveColor":"#FFF700","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"waiting_for_3ds","target":"to_be_called_by_call_center_b","faveColor":"#FFF700","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"waiting_for_payment","target":"cancelled","faveColor":"#FFB300","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"waiting_for_payment","target":"paid","faveColor":"#FFB300","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"to_archive","target":"to_renew","faveColor":"#BFBFBF","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"to_be_called_by_call_center_a","target":"cancelled","faveColor":"#AD9D36","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"to_be_called_by_call_center_b","target":"cancelled","faveColor":"#C9AF00","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"paid","target":"validated_by_service_a","faveColor":"#9DD490","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"validated_by_service_a","target":"validated_by_service_b","faveColor":"#77CF61","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"validated_by_service_b","target":"validated","faveColor":"#4BCC2B","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"to_renew","target":"waiting_for_payment","faveColor":"#FF009D","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"validated","target":"to_archive","faveColor":"#29EF29","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"cancelled","target":"refunded","faveColor":"#FF0000","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"cancelled","target":"to_delete","faveColor":"#FF0000","strength":20
+                        }
+                    },
+                    {
+                        "data":{
+                            "source":"refunded","target":"to_delete","faveColor":"#F90FFB","strength":20
+                        }
+                    }
+                ]
+            };
+        </script>
+    </head>
+
+    <body>
+        <div id="cy"></div>
+    </body>
+</html>

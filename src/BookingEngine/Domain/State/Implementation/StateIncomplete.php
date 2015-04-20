@@ -65,9 +65,9 @@ class StateIncomplete extends AbstractBookingState
     /**
      * {@inheritdoc}
      */
-    public function setBookingAsPaid(HasStateInterface $booking)
+    public function cancelBooking(HasStateInterface $booking)
     {
-        $newState = $this->getStateFromStateId(StatePaid::KEY, __METHOD__, $booking);
+        $newState = $this->getStateFromStateId(StateCancelled::KEY, __METHOD__, $booking);
         if ($newState) {
             $booking->changeState($this->getStateWorkflow(), $newState);
 

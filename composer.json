@@ -22,17 +22,12 @@
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "gmorel/state-workflow-bundle": "dev-develop"
+        "gmorel/state-workflow-bundle": "dev-master",
+        "spec-gen/state-workflow-spec-gen-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/gmorel/StateWorkflowBundle.git"
-        }
-    ],
     "scripts": {
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"
