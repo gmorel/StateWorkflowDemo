@@ -1,5 +1,5 @@
 {
-    "name": "gmorel/symfony2.6",
+    "name": "gmorel/state-workflow-demo",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -21,11 +21,18 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "gmorel/state-workflow-bundle": "dev-develop"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gmorel/StateWorkflowBundle.git"
+        }
+    ],
     "scripts": {
         "post-root-package-install": [
             "SymfonyStandard\\Composer::hookRootPackageInstall"

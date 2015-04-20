@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "741a3234ed61faa7e5e741c910170d10",
+    "hash": "647dd0cd96691e8957bb587cec1293c9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -699,6 +699,61 @@
                 "orm"
             ],
             "time": "2015-03-31 07:45:37"
+        },
+        {
+            "name": "gmorel/state-workflow-bundle",
+            "version": "dev-develop",
+            "target-dir": "Gmorel/StateWorkflowBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gmorel/StateWorkflowBundle.git",
+                "reference": "8c931e2f96ae42eb33390379b2416c5debbacbb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gmorel/StateWorkflowBundle/zipball/8c931e2f96ae42eb33390379b2416c5debbacbb1",
+                "reference": "8c931e2f96ae42eb33390379b2416c5debbacbb1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "<2.5",
+                "doctrine/doctrine-bundle": "~1.2",
+                "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+                "incenteev/composer-parameter-handler": "~2.0",
+                "php": ">=5.3.3",
+                "sensio/distribution-bundle": "~3.0,>=3.0.12",
+                "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+                "symfony/symfony": "2.6.*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "~4"
+            },
+            "type": "project",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Gmorel\\StateWorkflowBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guillaume MOREL",
+                    "email": "guillaume.morel@gmx.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/gmorel/StateWorkflowBundle/tree/develop",
+                "issues": "https://github.com/gmorel/StateWorkflowBundle/issues"
+            },
+            "time": "2015-04-19 18:35:56"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1666,7 +1721,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "gmorel/state-workflow-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
