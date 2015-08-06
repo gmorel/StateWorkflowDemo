@@ -26,7 +26,8 @@
         "spec-gen/state-workflow-spec-gen-bundle": "dev-master"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpunit/phpunit": "~4"
     },
     "scripts": {
         "post-root-package-install": [
