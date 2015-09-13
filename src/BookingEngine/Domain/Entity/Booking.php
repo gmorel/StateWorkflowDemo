@@ -59,4 +59,57 @@ class Booking extends BookingDoctrineEntity implements HasStateInterface
     {
         return $stateWorkflow->getStateFromKey($this->stateKey);
     }
+
+    /**
+     * [TellDontAsk](http://martinfowler.com/bliki/TellDontAsk.html)
+     * @param StateWorkflow $stateWorkflow
+     *
+     * @return \BookingEngine\Domain\State\Implementation\StateWaitingPayment New State
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\UnsupportedStateTransitionException
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\StateNotImplementedException
+     */
+    public function setAsWaitingForPayment(StateWorkflow $stateWorkflow)
+    {
+        return $this->getState($stateWorkflow)->setBookingAsWaitingForPayment($this);
+    }
+
+    /**
+     * [TellDontAsk](http://martinfowler.com/bliki/TellDontAsk.html)
+     * @param StateWorkflow $stateWorkflow
+     *
+     * @return \BookingEngine\Domain\State\Implementation\StatePaid New State
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\UnsupportedStateTransitionException
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\StateNotImplementedException
+     */
+    public function setAsPaid(StateWorkflow $stateWorkflow)
+    {
+        return $this->getState($stateWorkflow)->setBookingAsPaid($this);
+    }
+
+    /**
+     * [TellDontAsk](http://martinfowler.com/bliki/TellDontAsk.html)
+     * @param StateWorkflow $stateWorkflow
+     *
+     * @return \BookingEngine\Domain\State\Implementation\StateCancelled
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\UnsupportedStateTransitionException
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\StateNotImplementedException
+     */
+    public function cancel(StateWorkflow $stateWorkflow)
+    {
+        return $this->getState($stateWorkflow)->cancelBooking($this);
+    }
+
+
+    /**
+     * [TellDontAsk](http://martinfowler.com/bliki/TellDontAsk.html)
+     * @param StateWorkflow $stateWorkflow
+     *
+     * @return \BookingEngine\Domain\State\Implementation\StateToDelete New State
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\UnsupportedStateTransitionException
+     * @throws \Gmorel\StateWorkflowBundle\StateEngine\Exception\StateNotImplementedException
+     */
+    public function setToBeDeleted(StateWorkflow $stateWorkflow)
+    {
+        return $this->getState($stateWorkflow)->setBookingToBeDeleted($this);
+    }
 }
